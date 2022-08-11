@@ -56,16 +56,24 @@ function getClientBySetor(code, list,len) {
 
 
 function show(div) {
-
-
+    console.log(div)
+    if(div.length == 0) {
+        msg.innerHTML = "Codigo inválido"
+    }
     for (var i = 0; i < div.length; i++) {
         var tr = document.createElement('TR');
         table.appendChild(tr);
         for (let x = 0; x < 10; x++) {
             for (var j = 0; j < 1; j++) {
+                
                 var td = document.createElement('TD');
-                td.width = '75';
-                td.appendChild(document.createTextNode(div[i].split(';')[x]));
+                if (i%2 == 0 ) {
+                    td.classList.add("black")
+                } else {td.classList.add("table-active")}
+                td.appendChild(document.createTextNode(div[i].split(';')[x]))
+                if(x == 1){
+                    td.classList.add("larger")
+                };
                 tr.appendChild(td);
                 console.log(div[i])
               }
