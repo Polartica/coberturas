@@ -11,15 +11,12 @@ var soma = document.getElementById('Soma')
 var contagem = document.getElementById('Contagem')
 
 
-var myTableDiv = document.getElementById("myDynamicTable");
-  
-var table = document.createElement('TABLE');
-table.border = '1';
-
-var tableBody = document.getElementById("tableBody");
-table.appendChild(tableBody);
+var myTableDiv = document.getElementById("divtable");
+var table = document.getElementById("tableBody");
 
 function getvals(){
+
+
     return fetch("https://raw.githubusercontent.com/Polartica/coberturas/main/TrioVerde.csv",
     {method: "GET"})
     
@@ -27,22 +24,11 @@ function getvals(){
     .then((responseData) => {
     data =  responseData.split('\n');
     len = data.length
-
+    
+    
     div = getClientBySetor(code.value, data, len)
     
-    for (var i = 0; i < div.length; i++) {
-        var tr = document.createElement('TR');
-        tableBody.appendChild(tr);
-        for (let x = 0; x < 10; x++) {
-            for (var j = 0; j < 1; j++) {
-                var td = document.createElement('TD');
-                td.width = '75';
-                td.appendChild(document.createTextNode(div[i].split(';')[x]));
-                tr.appendChild(td);
-              }
-        }
-      }
-      myTableDiv.appendChild(table);
+    show(div)
 
 
     })
@@ -69,50 +55,37 @@ function getClientBySetor(code, list,len) {
     }
 
 
-function show(text) {
-    if(text === undefined){
-        msg.innerHTML = "Código não encontrado"
-    }
-    else {
-        text = text.split(';')
-        console.log(text[0])
-        codigo.appendChild(document.createTextNode(codigo[0]))
-        cliente.innerHTML = text[1]
-        spaten.innerHTML = text[5]
-        stella.innerHTML = text[6]
-        becks.innerHTML = text[7]
-        soma.innerHTML = text[8]
-        contagem.innerHTML = text[9]
-    }
+function show(div) {
+
+
+    for (var i = 0; i < div.length; i++) {
+        var tr = document.createElement('TR');
+        table.appendChild(tr);
+        for (let x = 0; x < 10; x++) {
+            for (var j = 0; j < 1; j++) {
+                var td = document.createElement('TD');
+                td.width = '75';
+                td.appendChild(document.createTextNode(div[i].split(';')[x]));
+                tr.appendChild(td);
+                console.log(div[i])
+              }
+        }
+      }
+      myTableDiv.appendChild(table);
 }
+
+
 
 // PEGA INPUT E REPASSA PARA GET VALS QUE PEGA O CSV E PASSA VALOR PARA GET CLIENT BY CODE
 form.addEventListener("submit", (event) => {
+
+
     event.preventDefault();
     console.log("button clicked");
-    
+
     getvals()
+    
+    
+
 });
 
-function addTable() {
-    var myTableDiv = document.getElementById("myDynamicTable");
-  
-    var table = document.createElement('TABLE');
-    table.border = '1';
-  
-    var tableBody = document.createElement('TBODY');
-    table.appendChild(tableBody);
-  
-    for (var i = 0; i < 3; i++) {
-      var tr = document.createElement('TR');
-      tableBody.appendChild(tr);
-  
-      for (var j = 0; j < 7; j++) {
-        var td = document.createElement('TD');
-        td.width = '75';
-        td.appendChild(document.createTextNode("Cell " + i));
-        tr.appendChild(td);
-      }
-    }
-    myTableDiv.appendChild(table);
-  }
