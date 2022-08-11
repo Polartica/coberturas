@@ -86,14 +86,10 @@ function show(div) {
 
 // PEGA INPUT E REPASSA PARA GET VALS QUE PEGA O CSV E PASSA VALOR PARA GET CLIENT BY CODE
 form.addEventListener("submit", (event) => {
-
-
     event.preventDefault();
     console.log("button clicked");
 
     getvals()
-    
-    
 
 });
 
