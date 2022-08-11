@@ -5,30 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="./style.css">
     <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
-    <div id="fileExplorer"></div>
-<div id="SpreadsheetDialog">
-    <div style="height: 100%;">
-        <div id="SpredsheetViewer"></div>
+    <form id="form">
+    <input id="code">
+    <button type="submit"> enviar</button>
+
+    <div id="msg"></div>
+    </form>
+
+    <div class="tabela">
+        <table>
+            <tr>
+              <th>Codigo</th>
+              <th>Cliente</th>
+              <th>Spaten RGB</th>
+              <th>Stella RGB</th>
+              <th>Becks RGB</th>
+              <th>Soma RGB</th>
+              <th>Contagem RGB</th>
+            </tr>
+            <tr>
+              <td id="codigo">        </td>
+              <td id="cliente">     </td>
+              <td id="Spaten">      </td>
+              <td id="Stella">       </td>
+              <td id="Becks">        </td>
+              <td id="Soma">         </td>
+              <td id="Contagem">         </td>
+            </tr>
+          </table>
+
     </div>
-</div>
+
 
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/alasql@1.7"></script>
-
-
-<script
-
-  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-  crossorigin="anonymous"></script>
-  <script src="jquery-csv.js"></script>
-<script src="./script.js"></script>
-<script src="./scriptt.js"></script>
-
-
+    <script src="./script.js"></script>
 </html>
