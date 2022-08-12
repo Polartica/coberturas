@@ -34,8 +34,27 @@ input::-webkit-inner-spin-button {
     gap: 20px;
 }
 
-th {
-  background: white;
+
+
+ table {
+  width: 100%;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+ table th{
+  font-size: 13px;
+  padding: 5px 10px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+thead th {
+  background:white;
+  position: -webkit-sticky; /* for Safari */
   position: sticky;
   top: 0;
+  font-weight: 600;
 }
+

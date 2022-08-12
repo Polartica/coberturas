@@ -26,7 +26,7 @@ function getvals(){
     len = data.length
     
     
-    div = getClientBySetor(code.value, data, len)
+    div = getInfoByCode(code.value, data, len)
     
     show(div)
 
@@ -34,17 +34,7 @@ function getvals(){
     })
 }
 
-// FUNCAO ACHA CODIGO DO CLIENTE NA LISTA DE CLIENTESS
-// function getClientByCode(code, list,len) {
-//     for (let i = 0; i < len; i++) {
-//         if (list[i].split(';')[0] == code) {
-//             console.log(list[i])
-//                 return list[i]
-//             }
-//         }
-//     }
-
-function getClientBySetor(code, list,len) {
+function getInfoByCode(code, list,len) {
     var lista = []
     for (let i = 0; i < len; i++) {
         if (list[i].split(';')[2] == code) {
@@ -61,7 +51,6 @@ function getClientBySetor(code, list,len) {
 
 
 function show(div) {
-    console.log(div)
     if(div.length == 0) {
         msg.innerHTML = "Codigo inválido"
     }
@@ -79,9 +68,7 @@ function show(div) {
                 if(x == 1){
                     td.classList.add("larger")
                 };
-                tr.appendChild(td);
-                console.log(div[i])
-              }
+                tr.appendChild(td);              }
         }
       }
       myTableDiv.appendChild(table);
@@ -97,4 +84,5 @@ form.addEventListener("submit", (event) => {
     getvals()
 
 });
+
 
