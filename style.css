@@ -34,3 +34,8 @@ input::-webkit-inner-spin-button {
     gap: 20px;
 }
 
+th {
+  background: white;
+  position: sticky;
+  top: 0;
+}
