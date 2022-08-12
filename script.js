@@ -50,6 +50,11 @@ function getClientBySetor(code, list,len) {
         if (list[i].split(';')[2] == code) {
             lista.push(list[i])  
             } 
+            else {
+                if (list[i].split(';')[0] == code) {
+                    lista.push(list[i]) 
+                } 
+            }
         }
     return lista
     }
